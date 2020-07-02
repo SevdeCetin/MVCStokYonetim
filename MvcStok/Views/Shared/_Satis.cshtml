@@ -1,0 +1,46 @@
+﻿@using MvcStok.Models.Entity
+@model List<TBLSATISLAR>
+
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ÜRÜN ID</th>
+            <th>ÜRÜN ADI</th>
+            <th>MARKA</th>
+            <th>KATEGORİ</th>
+            <th>FİYAT</th>
+            <th>STOK</th>
+            <th>SİL</th>
+            <th>GÜNCELLE</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var sat in Model)
+        {
+            <tr>
+                <th>@sat.URUN</th>
+                <td>@sat.MUSTERI</td>
+                <td>@sat.SATISID</td>
+                <td>@sat.FIYAT</td>
+              
+                <td>@sat.ADET</td>
+                <td><a href="/Satis/Sil/@sat.SATISID" class="btn btn-danger">SİL</a></td>
+                <td><a href="/Satis/UrunGetir/@sat.SATISID" class="btn btn-success">GÜNCELLE</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+<script>
+    $('#tbl1').DataTable({
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Turkish.json"
+        }
+    });
+</script>
+
+

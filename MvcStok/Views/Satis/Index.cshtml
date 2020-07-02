@@ -1,0 +1,54 @@
+﻿@using MvcStok.Models.Entity
+@model List<TBLSATISLAR>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<h2 class="title1"> <a href="/Satis/YeniSatis/" class="btn btn-primary" style="margin-bottom:15px"> YENİ SATIŞ EKLE</a> </h2>
+<div class="panel-info widget-shadow">
+    <table id="tbl1" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>SATIŞ</th>
+                <th>ÜRÜN</th>
+                <th>MÜŞTERİ</th>
+                <th>FİYAT</th>
+                <th>ADET</th>
+                <th>SİL</th>
+                <th>GÜNCELLE</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var sat in Model)
+            {
+            <tr>
+                <td>@sat.SATISID</td>
+                <th>@sat.URUN</th>
+                <td>@sat.MUSTERI</td>
+                <td>@sat.FIYAT</td>
+                <td>@sat.ADET</td>
+                <td>@Html.ActionLink("SİL", "Sil", new { id = sat.SATISID }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istediğinize emin misiniz?')" })</td>
+                @*<td><a href="/Satis/Sil/@sat.SATISID" class="btn btn-danger">SİL</a></td>*@
+                <td><a href="/Satis/SatisGetir/@sat.SATISID" class="btn btn-success">GÜNCELLE</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/DataTables/dataTables.bootstrap.min.js"></script>
+    <link href="~/Content/DataTables/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+
+    <script>
+        $('#tbl1').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Turkish.json"
+            }
+        });
+    </script>
+
+

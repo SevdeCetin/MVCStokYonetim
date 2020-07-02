@@ -1,0 +1,28 @@
+﻿@model MvcStok.Models.Entity.TBLSATISLAR
+
+@{
+    ViewBag.Title = "SatisGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("Guncelle", "Satis", FormMethod.Post))
+{
+    <div class="form-group">
+        @*@Html.LabelFor(m => m.URUN)
+        @Html.TextBoxFor(m => m.URUN, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.MUSTERI)
+        @Html.TextBoxFor(m => m.MUSTERI, new { @class = "form-control" })*@
+        <br />
+        @Html.LabelFor(m => m.FIYAT)
+        @Html.TextBoxFor(m => m.FIYAT, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.ADET)
+        @Html.TextBoxFor(m => m.ADET, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <button class="btn btn-warning">Satış Güncelle</button>
+    </div>
+}
+
