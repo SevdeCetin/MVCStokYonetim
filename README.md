@@ -1,2 +1,2 @@
 # StokYonetim
-MVC ile Stok Kontrol Projesi
+.NET MVC ile Stok Kontrol Projesi
